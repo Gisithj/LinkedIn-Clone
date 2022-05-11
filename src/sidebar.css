@@ -1,0 +1,103 @@
+.sidebar{
+    position: sticky;
+    top: 80px;
+    flex: 0.2;
+    border-radius: 10px;
+    /* text-align: center; */
+    height: fit-content;
+}
+
+.sidebar_avatar{
+    margin-bottom: 10px;    
+    height: 70px !important;
+    width: 70px !important;
+    border: 3px white solid;
+}
+.sidebar_avatar img{
+    object-fit: cover !important;
+    height: 100px !important;
+}
+
+.sidebar_top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-bottom: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+    padding-bottom: 10px;
+}
+.sidebar_top h4{
+    color: gray;
+    font-size: 12px;
+}
+.sidebar_top h2{
+    font-size:20px ;
+}
+
+.sidebar_top img{
+    object-fit:fill;
+    width: 100%;
+    height: 60px;
+    margin-bottom: -20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.sidebar_stat{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.sidebar_stat p{
+    font-size: 13px;
+    color: gray;
+    font-weight: 600;
+}
+.sidebar_statNumber{
+    font-weight: bold;
+    color:#0a66c2 ;
+}
+.sidebar_stats{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.sidebar_bottom{
+    text-align: left;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.sidebar_bottom p{
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+.sidebar_recentItem{
+    display: flex;
+    font-size: 13px;
+    color: gray;
+    font-weight: bolder;
+    cursor: pointer;
+    padding: 5px;
+}
+.sidebar_recentItem :hover{
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+.sidebar_hash{
+    margin-right: 10px;
+    margin-left: 5px;
+}
