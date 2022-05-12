@@ -13,8 +13,7 @@ function Login() {
     const [profilePic,setProfilePic]=useState("");
     const dispatch = useDispatch();
 
-    const register =(e) =>{
-        e.preventDeafult();
+    const register =() =>{
         if(!name){
             return alert("Please enter a full name!");
         }
