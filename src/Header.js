@@ -16,11 +16,8 @@ function Header() {
   const dispatch = useDispatch();
 
   const logOutOfApp =()=>{
-    console.log("called");
     dispatch(logout());
     auth.signOut();
-    
-
   }
   return (
     <div className="header">
@@ -41,11 +38,10 @@ function Header() {
             <HeaderOption Icon={BusinessCenterIcon} title = "Jobs"/>
             <HeaderOption Icon={ChatIcon} title="Message"/>
             <HeaderOption Icon={NotificationsIcon} title="Notifications"/>
-            <HeaderOption avatar="https://media-exp1.licdn.com/dms/image/C5603AQGas992xr6W1w/profile-
-            displayphoto-shrink_800_800/0/1615791510357?e=1657756800&v=beta&t=U8JNex3sL8AJRYkPzO80ji
-            dYJfPPMNXZQkjwPODGTqA" 
-            title="me"
-            onClick={logOutOfApp}
+            <HeaderOption 
+              avatar={true}
+              title="me"
+              onClick={logOutOfApp}
             />
         </div>
     </div>

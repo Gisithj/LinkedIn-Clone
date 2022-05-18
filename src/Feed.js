@@ -9,14 +9,16 @@ import SubscriptionIcon from '@material-ui/icons/Subscriptions'
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import Post from './Post';
-import firebase from 'firebase/compat/app';
 import { db } from './firebase';
 import {collection, onSnapshot,addDoc, serverTimestamp } from 'firebase/firestore'
 import { query, orderBy } from "firebase/firestore";  
-
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
+import FlipMove from 'react-flip-move';
 function Feed() {
     const [input,setInput]= useState("");
     const [posts,setPosts] = useState([]);
+    const user = useSelector(selectUser)
     
     useEffect(()=>{
         const q= query(collection(db,"posts"),orderBy('timestamp','desc'))
@@ -33,10 +35,10 @@ function Feed() {
         e.preventDefault();
         const p =collection(db,"posts")
         addDoc(p,{
-            name:"Gisith Jayawardena",
-            decription:"This is it",
+            name:user.displayName,
+            description:user.email,
             message:input,
-            photoUrl:'',
+            photoUrl:user.photoUrl || "",
             timestamp:serverTimestamp()
         });
        setInput("");     
@@ -66,18 +68,21 @@ function Feed() {
             </div>                       
         </div>
 
+        <FlipMove>
         {posts.map(({id,data:{name,description,message,
         photoUrl }})=>(
             <Post
                 key={id}
                 name={name}
-                decription={description}
+                description={description}
                 message={message}
                 photoUrl={photoUrl}
                 
 
             />
-        ))}               
+        ))} 
+        </FlipMove>
+                      
     </div>
   )
 }
