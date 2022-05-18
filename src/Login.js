@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { login } from './features/userSlice';
 import { auth } from './firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import './Login.css'
 
 function Login() {
@@ -37,7 +38,22 @@ function Login() {
     };
 
     const loginToApp =(e)=>{
-         e.preventDeafult();
+        e.preventDefault();
+        if(!email){
+            return alert("Please enter your email!");
+        }
+        signInWithEmailAndPassword(auth,email,password)
+        .then((userAuth) => {
+            dispatch(
+                login({
+                    email: userAuth.user.email,
+                    uid : userAuth.user.uid,
+                    displayName: userAuth.user.displayName,
+                    photoUrl: userAuth.user.profileURL
+                })
+            )
+        }).catch(error => alert(error))
+       
     }
   return (
     <div className='login'>
